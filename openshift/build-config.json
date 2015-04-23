@@ -1,0 +1,34 @@
+{
+    "kind": "BuildConfig",
+    "apiVersion": "v1beta1",
+    "metadata": {
+        "name": "hscbld",
+    },
+    "parameters": {
+        "source": {
+            "type": "Git",
+            "git": {
+                "uri": "https://github.com/maschmid/ha-servlet-counter.git"
+            }
+        },
+        "strategy": {
+            "type": "STI",
+            "stiStrategy": {
+                "image": "ce-registry.usersys.redhat.com/jboss-eap6/eap-openshift:6.4",
+            }
+        },
+        "output": {
+            "to": {
+                "name": "hsc-image"
+            }
+        }
+    },
+	"triggers": [
+		{
+			"generic": {
+				"secret": "secret101"
+			},
+			"type": "generic"
+		}
+	]
+}

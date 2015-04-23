@@ -1,0 +1,10 @@
+{
+    "kind": "ImageStream",
+    "apiVersion": "v1beta1",
+    "metadata": {
+        "name": "hsc-image",
+        "labels": {
+            "name": "hsc"
+        }
+    },
+}

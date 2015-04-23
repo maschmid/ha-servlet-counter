@@ -1,0 +1,55 @@
+{
+    "kind" : "DeploymentConfig",
+    "apiVersion" : "v1beta1",
+    "metadata" : {"name" : "hsc-deployment"},
+    "triggers" : [{
+        "type" : "ImageChange",
+        "imageChangeParams" : {
+            "automatic" : true,
+            "containerNames" : ["hsc"],
+            "from" : {"name" : "hsc-image"},
+            "tag" : "latest"
+        }
+    }],
+    "template" : {
+        "strategy" : {"type" : "Recreate"},
+        "controllerTemplate" : {
+            "replicas" : 3,
+            "replicaSelector" : {"name" : "hsc"},
+            "podTemplate" : {
+                "desiredState" : {"manifest" : {
+                    "version" : "v1beta2",
+                    "id" : "hsc",
+                    "containers" : [{
+                        "name" : "hsc",
+                        "image" : "hsc-image",
+                        "env" : [
+                            {
+                                "name" : "OPENSHIFT_PING_SERVICE",
+                                "value" : "ping-service"
+                            },
+                            {
+                                "name" : "OPENSHIFT_PING_NAMESPACE",
+                                "value" : "maschmid"
+                            }
+                        ],
+                        "ports" : [
+                            {
+                                "containerPort" : 8080,
+                                "protocol" : "TCP"
+                            },
+                            {
+                                "containerPort" : 8888,
+                                "name" : "ping"
+                            }
+                        ],
+                        "imagePullPolicy" : "Always"
+                    }],
+                    "restartPolicy" : {"always" : {}},
+                    "dnsPolicy" : "ClusterFirst"
+                }},
+                "labels" : {"name" : "hsc"}
+            }
+        }
+    }
+}

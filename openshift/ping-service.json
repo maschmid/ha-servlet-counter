@@ -1,0 +1,12 @@
+{
+    "kind": "Service",
+    "id": "ping-service",
+    "apiVersion": "v1beta1",
+    "port": 8888,
+    "protocol": "TCP",
+    "portalIP": "None",
+    "selector": {
+        "name": "hsc"
+    },
+    "sessionAffinity": "None"
+}

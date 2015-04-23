@@ -1,0 +1,12 @@
+{
+    "kind": "Service",
+    "id": "hsc-service",
+    "apiVersion": "v1beta1",
+    "port": 8888,
+    "protocol": "TCP",
+    "selector": {
+        "name": "hsc"
+    },
+    "containerPort": 8080,
+    "sessionAffinity": "None"
+}
