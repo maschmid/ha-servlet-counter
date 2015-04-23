@@ -2,7 +2,7 @@
     "kind": "BuildConfig",
     "apiVersion": "v1beta1",
     "metadata": {
-        "name": "hscbld",
+        "name": "hscbld"
     },
     "parameters": {
         "source": {
@@ -14,7 +14,7 @@
         "strategy": {
             "type": "STI",
             "stiStrategy": {
-                "image": "ce-registry.usersys.redhat.com/jboss-eap6/eap-openshift:6.4",
+                "image": "ce-registry.usersys.redhat.com/jboss-eap6/eap-openshift:6.4"
             }
         },
         "output": {
