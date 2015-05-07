@@ -30,7 +30,7 @@
                             },
                             {
                                 "name" : "OPENSHIFT_PING_NAMESPACE",
-                                "value" : "maschmid"
+                                "value" : "eap-soak-test"
                             }
                         ],
                         "ports" : [

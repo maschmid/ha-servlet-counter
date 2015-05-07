@@ -14,7 +14,7 @@
         "strategy": {
             "type": "STI",
             "stiStrategy": {
-                "image": "ce-registry.usersys.redhat.com/jboss-eap6/eap-openshift:6.4"
+                "image": "ce-registry.usersys.redhat.com/jbeap6/eap-openshift:6.4-106"
             }
         },
         "output": {
