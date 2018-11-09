@@ -16,7 +16,10 @@ public class UuidServletListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent event) {
-        event.getServletContext().setAttribute("servletId", UUID.randomUUID().toString());
+        try {
+            event.getServletContext().setAttribute("servletId", InetAddress.getLocalHost().getHostName() + "-" + UUID.randomUUID());
+        } catch (UnknownHostException e) {
+            event.getServletContext().setAttribute("servletId", UUID.randomUUID());
+        }
     }
-
 }
